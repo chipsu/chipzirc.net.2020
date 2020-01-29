@@ -1,0 +1,328 @@
+[0.100.0.21] - 9/3 2009 - Public release
+Fix: The updater couldn't start the installer on Vista/Windows7.
+     
+[0.100.0.20] - 8/3 2009 - Public release
+Fix: Winamp plugin bugs & error reporting.
+Fix: XPTable updated to version 1.1.14.
+New: Added prefered procotol option in Options > Connection.
+     Note that this only affects incoming connections for now.
+Fix: MainForm was sometimes trying to access a disposed object at shutdown, causing some settings to reset.
+
+[0.100.0.15] - 6/3 2009 - Public release
+Fix: DCC SEND and CHAT bugs fixed. IPv6 _might_ work, can only test it on my local network for now.
+Fix: Installer should not hide behind other windows.
+
+[0.100.0.0] - 5/3 2009 - Public release
+Fix: UserList sorting should be a LOT faster now, still might be a bit slow on busy channels.
+
+[0.99.99.167] - 4/3 2009 - Internal
+Fix: TrayIcon will hopefully no longer mess up the document panels when MinimizeToTray is enabled.
+New: IRC formatting shortcuts works in the MultiLineInputBox and ChannelProperties dialog now.
+Fix: AutoUpdater error reporting improved.
+
+[0.99.99.149] - 3/3 2009 - Internal
+New: The DockPanels have been updated to the latest version, so the x64 bug should now be gone.
+     This also updates the docking styles to VS2005, the old style will be reimplemented.
+New: Binaries are now released as "Any CPU" again (as the docking bug is gone).
+New: Toolbar positions & visibility are now stored in the configuration file.
+New: The ChannelUserList has been moved to a DockPanel, it will show the users in the active or last active ChannelWindow.
+New: ChannelWindow toolbar has been removed, most of the actions can now be found in the ContextMenu (right click).
+New: ContextMenu handling for the BaseWindow class rewritten.
+
+This release will break compatibility with plugins that use the ContextMenu and ToolBar events/methods in the BaseWindow and it's derivatives.
+
+[0.99.99.60] - 28/2 2009 - Internal
+Fix: XPTable is trying to set invalid scrollbar values on some systems, values are now validated before set. Can't reproduce the error so may or may not be a working fix.
+Fix: RichTextBoxEx should no longer throw an exception if the selection is invalid.
+Fix: ServerList will now use the correct ContextMenus.
+New: Shift-clicking a nickname in a Server or ChatWindow will show the user's hostmask, Control-Shift-Click will do a whois.
+
+[0.99.99.41] - 7/1 2009 - Public release
+Fix: Connect dialog DoubleClickable.
+Fix: Some minor bugs.
+
+[0.99.99.40] - 7/1 2009 - Public release
+Fix: Newlines in the identity editor wasn't handled correctly.
+Fix: Title was showing "beta" on non internal releases.
+Fix: Updater startup check delayed a bit, so it runs after the startup spam.
+
+[0.99.99.39] - 3/11 2008 - Public release
+New: The ScriptEditor has been redesigned & the tab bug is fixed.
+	 It can now handle multiple scripts and will automatically load scripts found in the program and appdata folder.
+
+[0.99.99.1] - 2/11 2008 - Public release
+Public release of the latest internal version.
+Nothing major has changed since 0.99.98.0, some bugs and a new wizard to make it a little bit more user friendly.
+
+[0.99.98.50] - 1/11 2008 - Internal
+Fix: Few missing strings in the swedish translation.
+Fix: Updated to the lastest NSIS version.
+
+[0.99.98.48] - 29/10 2008 - Internal
+New: A simple wizard will be shown at the first run.
+Fix: Window position wasn't saved correctly when reloading the profile.
+Fix: ChipzIRC will not use the AppData path by default.
+	 Note that in order to get your old profile you will have to:
+	 - Copy MyDocs/ChipzIRC to AppData/ChipzIRC
+	   OR
+	 - Edit ChipzIRC.config.xml so Path points to MyDocs (<Path>$myDocuments/$appName/</Path>).
+Fix: Log viewer will now find all log files and can be resized.
+New: Scintilla dependency removed, now using a normal RichTextBox for script editing.
+Fix: A few bugs here and there...
+
+[0.99.98.0] - 7/2 2008 - Public release
+Public release of the latest internal version.
+
+This is most likely the final release of ChipzIRC with new features.
+I (the developer) don't use IRC very much these days and I have other projects that I want to spend my time on.
+I've leart a lot from this project and would to so many things different if I had coded ChipzIRC today.
+But who knows, maybe I'll start working on ChipzIRC 2.0 some day (actually I already have, but it's one ice atm)... still have some very interesting ideas that's not in any IRC client that I know of.
+
+I will still fix any major issues that show up, so expect a few more releases every now and then.
+
+[0.99.97.481] - 20/1 2008 - Internal
+New: _Experimental_ group/user management in the options form.
+Fix: Updated about dialog text.
+
+[0.99.97.449] - 2/1 2008 - Internal
+New: Added an option to specify a save path for incoming file transfers.
+New: Option to only accept DCC transfers automatically if the user is flagged as a friend.
+
+[0.99.97.442] - 20/12 2007 - Internal
+New: Homepage and donation links added to the Help menu.
+Fix: UserRemovedFromGroup event will now trigger when a user is deleted.
+New: ContactList will now display all users that have the IsFriend option set, it also displays friends in the same channel as you as Online.
+Fix: WebBrowser titles & address bar should now update when the location has changed.
+Fix: Better theme support, theme-editor shouldn't crash as often.
+Fix: Theme preview re-implemented in the options form.
+Fix: Some missing translations in the options form.
+
+[0.99.97.400] - 11/12 2007 - Public release
+New: Added a few profile get/set methods to the ChipzIRC.Plugin class.
+New: Updater addon added to the distribution, the old updater is now obsolete.
+Fix: Updater and TrayIcon plugins are now loaded on first run.
+
+[0.99.97.397] - 11/12 2007 - Public release
+Fix: AutoUpdater domain names.
+
+[0.99.97.396] - 4/4 2007 - Public release
+Fix: Assembly-plugin bug that caused the Plugins-list to be empty.
+
+[0.99.97.395] - 4/4 2007 - Public release
+Fix: Fixed translations & error messages in the keybindings editor.
+Fix: Added missing strings to the english and swedish language files.
+
+[0.99.97.394] - 3/4 2007 - Internal
+New: Added ToolTips for the ServerList and UserList.
+New: Support for global keybindings added.
+New: Multimedia plugin added to distribution, this plugin can play many audio formats like mp3.
+New: PlaySound command added to the core plugin, this command can only play wave files.
+Fix: MainForm title should now follow the active ServerWindow better.
+Fix: AutoConnect freeze at startup fixed.
+New: KeyBindings editor added to the options dialog.
+Fix: KeyBindings deserialization bug fixed.
+New: Added an option to automatically invoke commands in the Main-thread (CmdManager.RegisterCmd), default is disabled.
+
+[0.99.97.282] - 1/4 2007 - Internal
+New: Customizable keybindings. Keys can be bound to a command.
+New: Four new commands: NextDocument, PrevDocument, NextPane, PrevPane.
+New: Profile.SetObject and GetObject can be used to store/restore a serializable object.
+Fix: ServerListPanel flickering reduced.
+Fix: Disappearing documents when the MainForm is restored from the tray fixed.
+Fix: Plugin list in the options dialog has been improved.
+Fix: ScrollToBottom "bug" on first selection in a RichTextBoxEx.
+Fix: Text boxes are now scrolled to bottom when resized, this will fix some irritating bugs when the window is restored from the tray.
+	 Note that the scrolling still is far from perfect...
+Fix: Better command parsing, you can now use quotes (" or ') to send strings with spaces as parameters, quotes can be escaped with a backslash (\).
+
+[0.99.97.279] - 26/1 2007 - Public release
+New: A few IrcTextBox options added to the OptionsForm (Apperance > General).
+
+[0.99.97.262] - 25/1 2007 - Internal
+Fix: Line-count bug in RichTextBoxEx fixed, MaxLines now checks newlines instead of linewraps.
+Fix: RichTextBoxEx now scrolls to bottom instead of top when resized.
+
+[0.99.97.256] - 22/1 2007 - Internal
+Fix: Removed the space between final line and the bottom in IrcTextBox.
+Fix: IRC color parsing slighly improved.
+Fix: AutoScroll should now not occur when selecting text.
+Fix: Missing autoclear in RichTextBoxEx added.
+Fix: AutoScroll should now work on background windows (but still not 100% accurate).
+New: Four new option keys: IrcTextBox.DetectEmails, IrcTextBox.DetectUrls, IrcTextBox.DetectIrcChannels and IrcTextBox.MaxLines.
+
+[0.99.97.229] - 28/12 2006 - Public release
+Fix: RichTextBox LinkHover checking optimized.
+Fix: The last character in a RichTextBox where not included in Link events.
+
+[0.99.97.228] - 28/12 2006 - Public release
+Fix: RichTextBox link bug fixed.
+Fix: Image thumbnails re-implemented.
+Fix: IrcTextBox link highlighting code improved, support for channels and emails (re)added.
+
+[0.99.97.100] - 27/12 2006 - Internal
+New: TextBox zooming and lots of the other old RichTextBox features.
+New: IrcTextControl replaced with the old RichTextBox, most scrolling bugs have been fixed.
+New: Text is automatically copied to the clipboard when selected.
+Rem: Image thumbnails disabled, this feature may come back when RichTextBoxEx LinkHover event have been added.
+Rem: Lots of obsolete code removed, this may affect some very old plugins.
+
+[0.99.97.15] - 20/12 2006 - Internal
+Fix: Serious IRC message parsing bug fixed, only occurred on some networks.
+
+[0.99.97.0] - 14/12 2006 - Public release
+Fix: Installer startup bug fixed.
+New: Improved scripting: imports and static members.
+New: Removed the html docs in the installer and replaced it with a link to the online documentation.
+
+[0.99.96.50] - 6/12 2006 - Internal
+Fix: ServerList ChildWindow bug fixed.
+Fix: Slow receive bug fixed.
+Fix: All networks in channels menu temporary disabled.
+Fix: Autojoin moved to OnSupport (from NetworkSet).
+Fix: Highlight bug when not registered.
+
+[0.99.95.2] - 11/10 2006 - Public release
+Fix: Channel category-names where not saved correctly.
+Fix: Fixed a bug making the userlist unsorted.
+
+[0.99.85.12] - 30/9 2006 - Public release
+Fix: Binaries compiles as 32-bit to fix the crashes on WinXP x64.
+Fix: Fixed a bug in the IRC library causing queries to look like channel messages.
+
+[0.99.84.0] - 20/9 2006 - Public release
+Fix: Fixed a bug in the Favorite editor.
+Fix: Fixed a bug that made it impossible to join channels on networks that didn't send CHANTYPES.
+Fix: Fixed a bug that caused the MainForm not to show up at startup.
+New: MainForm will now detect if the window is not visible on any screen and restore the window on the primary screen.
+
+[0.99.82.0] - 11/9 2006 - Public release
+Fix: Fixed a bug causing the connection keeper thread to continue after the serverwindow was closed.
+Fix: Fixed an invalid cast in QueryMonitor.
+
+[0.99.75.8] - 11/9 2006 - Internal
+Fix: Some minor xscript bugs fixed.
+Fix: Bug causing the application to freeze fixed.
+
+[0.99.73.0] - 5/9 2006 - Public release
+Fix: Fixed sync bug when the profile was reloaded.
+
+[0.99.71.12] - 28/8 2006 - Public release
+Fix: OptionsForm layout tweaked.
+
+[0.99.70.91] - 27/8 2006 - Internal
+Fix: Bug preventing DccChatWindows with same target showing up in the ServerList fixed.
+Fix: Fixed a bug causing random lockups at first connect.
+Fix: Most dialoges can be closed with the escape button.
+New: MultiLineInputBox can be opened by pressing CTRL+I in a TextWindow input-box.
+Fix: Tab colors on channel/query activity fixed.
+Fix: About form tweaked.
+Fix: Fullscreen mode fixed.
+
+[0.99.69.1] - 25/8 2006 - Internal
+Fix: ServerList didn't expand when a new server was added.
+Fix: ServerList rootlines is now visible by default.
+
+[0.99.67.36] - 24/8 2006 - Internal
+Fix: Channel key couldn't changed from chanprops if already set.
+Fix: Channel key didn't show up in channel properties.
+Fix: Negative color command fixed.
+Fix: IRC color 0 as TextColor fixed.
+Fix: Added identity page to favorite editor.
+Fix: Fixed OnJoin bug that occured when using psyBNC.
+
+[0.99.66.6] - 20/8 2006 - Public release
+Fix: Fixed a memory leak in ResourceHelper.
+Fix: Fixed integer overflow in IrcLogger.
+Fix: Log files are now saved in UTF-8 format.
+
+[0.99.54.0] - 20/8 2006 - Internal
+Fix: Fixed bug in IrcLogger.
+Fix: Fixed window selection in channel monitor.
+
+[0.99.51.93] - 20/8 2006 - Internal
+New: New image & icon loading, all icons in /Resources/Default/ have been embedded.
+New: Channel list added.
+New: Added a fullscreen mode. Try View > Fullscreen.
+
+[0.99.50.72] - 18/8 2006 - Internal
+Fix: Removed zoom buttons from TextWindow toolbar since zooming hasn't been implemented to the TextControl.
+New: Hide/show individual toolbars in View > Toolbars.
+New: Added a searchbox to the toolbar. All monitor panels & textwindows are searchable.
+Fix: Toolbars redocking fixed.
+Fix: Finally made it possible to type commands in the console.
+Fix: Added some servers to default profile.
+Fix: IrcChannel link regex where incorrect.
+Fix: First cell in Options > Identitities where missing.
+
+[0.99.49.99] - 16/8 2006 - Internal
+Fix: Multiple processes check fixed.
+New: Added support for irc URIs.
+Fix: Lots of controls used in the OptionsForm have been redesigned.
+
+[0.99.48.114] - 15/8 2006 - Internal
+New: Identity & AutoConnect options have been removed from Server. You'll now have to create a FavoriteServer to set AutoConnect and custom identity.
+New: New server editor & connect window.
+New: EditChannels item in channels menu.
+New: Added experimental flood protection (incoming).
+Fix: DockPaneCaption drawing tweaked.
+New: Added VisualStyles options under Apperance > General.
+Fix: Added missing call to EnableVisualStyles at startup.
+Fix: New reconnect code.
+Fix: TrayIcon didn't remove the icon when MainForm was closed.
+Fix: Flash on highlight fixed.
+Fix: Compiler & plugin loader output should now be easier to read.
+New: Console RichTextBox replaced with TextControl.
+
+[0.99.43.0] - 10/8 2006 - Public release
+Fix: ChatWindow SendNotice and SendMessage called wrong library methods.
+New: Added a basic text-to-speech plugin.
+New: The plugin compiler can now compile C# and VB.NET projects.
+New: Plugin interface changed, plugins should now be in a namespace with the same name as the plugin, and the main class should be names Plugin.
+
+[0.99.40.236] - 8/8 2006 - Public release
+New: MainForm pos & size keys changed to MainForm.Location & MainForm.Size.
+New: Slaps & quit/part messages can be edited in options.
+Fix: Logfiles are now stored in the working path (default MyDocuments/ChipzIRC).
+New: Added support for command documentation & help. Use /help for more info.
+New: DCC chat & file transfer ignore & auto accept.
+New: Added option to use a client-side cert. (not sure if it works though :).
+New: Added X509-certificate manager to OptionsForm.
+New: Added an option to remove the tabs and use normal MDI windows.
+New: ThemeEdit.exe added to installer.
+Fix: Experimental theme support is back.
+
+[0.99.39.95] - 2/8 2006 - Internal
+New: DCC chat.
+Fix: DCC send IP-address bug.
+New: DockPanel localization support added.
+Fix: SchedulerWindow now displays active tasks.
+Fix: CmdScheduler sync.
+Fix: Right-clicking a user in a channel will select the user.
+Fix: Some tab-orders fixed.
+Fix: Winamp plugin tweaked.
+New: Created a foobar2000 plugin that reads the song title from foobars titlebar.
+New: Added localization support for OptionsForm.
+Fix: OptionsForm tweaked.
+New: Added config string: AutoJoinDelay.
+
+[0.99.37.0] - 20/7 2006 - First public release
+New: Installer rebuilt with the latest NSIS version.
+Fix: Added missing file SciLexer.dll.
+
+[0.99.35.0] - 20/7 2006 - Internal
+New: Added eNetwork variable to Channel/QueryMonitor LineStyles.
+New: Default.profile moved to /Resources/.
+Fix: ChannelWindow UserMenu will not popup when no user is selected.
+
+[0.99.28.1] - Internal
+New: Added ConnectionStatusControl to chat & server windows.
+New: Added Readme & License menu items in the help menu.
+Fix: Lots of strings localized.
+Fix: External browser links are now opened in a separate thread (main window doesn't lockup if browser isn't respoding).
+Fix: Channel-properties banlist tweaked.
+New: SSL certificate dialog added.
+New: ServerWindow title displays cipher type & strength when using SSL.
+Fix: Theme code tweaked.
+
+[0.99.23.0] - Internal
+New: Changelog created.
