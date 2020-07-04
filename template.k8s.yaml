@@ -1,0 +1,72 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: ${K8S_PROJECT}
+  labels:
+    name: ${K8S_PROJECT}
+    project: ${K8S_PROJECT}
+  annotations:
+    field.cattle.io/projectId: "${K8S_PROJECT_ID}"
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ${K8S_PROJECT}-ingress
+  namespace: ${K8S_PROJECT}
+  labels:
+    project: ${K8S_PROJECT}
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/from-to-www-redirect: "true"
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    #cert-manager.io/cluster-issuer: letsencrypt-cf-staging
+spec:
+  #tls:
+  #- secretName: ${K8S_PROJECT}-tls
+  #  hosts:
+  #  - ${K8S_HOSTNAME}
+  #  - www.${K8S_HOSTNAME}
+  rules:
+  - host: ${K8S_HOSTNAME}
+    http:
+      paths:
+      - backend:
+          serviceName: ${K8S_PROJECT}-service
+          servicePort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ${K8S_PROJECT}-service
+  namespace: ${K8S_PROJECT}
+  labels:
+    project: ${K8S_PROJECT}
+spec:
+  selector:
+    app: ${K8S_PROJECT}-app
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ${K8S_PROJECT}-app
+  namespace: ${K8S_PROJECT}
+  labels:
+    app: ${K8S_PROJECT}-app
+    project: ${K8S_PROJECT}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ${K8S_PROJECT}-app
+  template:
+    metadata:
+      labels:
+        app: ${K8S_PROJECT}-app
+    spec:
+      containers:
+      - name: app
+        image: ${K8S_IMAGE}
